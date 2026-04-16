@@ -49,21 +49,45 @@
         <a href="#philosophy" class="navbar__link" id="nav-philosophy">Philosophy</a>
         <a href="#contact" class="navbar__link" id="nav-contact">Contact</a>
       </div>
-      <button class="navbar__toggle" id="nav-toggle" aria-label="Toggle menu">
+      <button class="navbar__toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-drawer">
         <span></span>
         <span></span>
       </button>
     </div>
   </nav>
 
-  <!-- Mobile Menu Overlay -->
-  <div class="mobile-menu" id="mobile-menu">
-    <div class="mobile-menu__inner">
-      <a href="#products" class="mobile-menu__link" id="mobile-products">Products</a>
-      <a href="#philosophy" class="mobile-menu__link" id="mobile-philosophy">Philosophy</a>
-      <a href="#contact" class="mobile-menu__link" id="mobile-contact">Contact</a>
+  <!-- Mobile Drawer Backdrop -->
+  <div class="drawer-backdrop" id="drawer-backdrop" aria-hidden="true"></div>
+
+  <!-- Mobile Drawer -->
+  <nav class="mobile-drawer" id="mobile-drawer" aria-label="Mobile navigation" aria-hidden="true">
+    <div class="mobile-drawer__header">
+      <span class="mobile-drawer__brand">KALIPR LABS</span>
+      <button class="mobile-drawer__close" id="drawer-close" aria-label="Close menu">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M15 5L5 15M5 5L15 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </button>
     </div>
-  </div>
+    <div class="mobile-drawer__links">
+      <a href="#products" class="mobile-drawer__link" id="mobile-products">
+        <span class="mobile-drawer__link-num">01</span>
+        Products
+      </a>
+      <a href="#philosophy" class="mobile-drawer__link" id="mobile-philosophy">
+        <span class="mobile-drawer__link-num">02</span>
+        Philosophy
+      </a>
+      <a href="#contact" class="mobile-drawer__link" id="mobile-contact">
+        <span class="mobile-drawer__link-num">03</span>
+        Contact
+      </a>
+    </div>
+    <div class="mobile-drawer__footer">
+      <a href="mailto:contact@kaliprlabs.in" class="mobile-drawer__email">contact@kaliprlabs.in</a>
+      <span class="mobile-drawer__location">Pune, India</span>
+    </div>
+  </nav>
 
   <main>
 
@@ -233,7 +257,7 @@
           </div>
           <div class="footer__contact" id="footer-contact">
             <p class="footer__prompt">Have something interesting?</p>
-            <a href="mailto:hello@kaliprlabs.in" class="footer__email" id="footer-email">hello@kaliprlabs.in</a>
+            <a href="mailto:contact@kaliprlabs.in" class="footer__email" id="footer-email">hello@kaliprlabs.in</a>
           </div>
         </div>
         <div class="footer__bottom">

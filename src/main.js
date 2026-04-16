@@ -52,36 +52,48 @@ function initNavbar() {
 }
 
 
-// ─── Mobile Menu ───
+// ─── Mobile Drawer ───
 function initMobileMenu() {
-  const toggle = document.getElementById('nav-toggle');
-  const menu = document.getElementById('mobile-menu');
-  const links = menu?.querySelectorAll('.mobile-menu__link');
+  const toggle   = document.getElementById('nav-toggle');
+  const drawer   = document.getElementById('mobile-drawer');
+  const backdrop = document.getElementById('drawer-backdrop');
+  const closeBtn = document.getElementById('drawer-close');
+  const links    = drawer?.querySelectorAll('.mobile-drawer__link');
 
-  if (!toggle || !menu) return;
+  if (!toggle || !drawer || !backdrop) return;
 
-  function toggleMenu() {
-    const isOpen = menu.classList.contains('open');
-
-    if (isOpen) {
-      menu.classList.remove('open');
-      toggle.classList.remove('active');
-      document.body.style.overflow = '';
-    } else {
-      menu.classList.add('open');
-      toggle.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
+  function openDrawer() {
+    drawer.classList.add('open');
+    backdrop.classList.add('open');
+    toggle.classList.add('active');
+    toggle.setAttribute('aria-expanded', 'true');
+    drawer.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
   }
 
-  toggle.addEventListener('click', toggleMenu);
+  function closeDrawer() {
+    drawer.classList.remove('open');
+    backdrop.classList.remove('open');
+    toggle.classList.remove('active');
+    toggle.setAttribute('aria-expanded', 'false');
+    drawer.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  toggle.addEventListener('click', () => {
+    drawer.classList.contains('open') ? closeDrawer() : openDrawer();
+  });
+
+  closeBtn?.addEventListener('click', closeDrawer);
+  backdrop.addEventListener('click', closeDrawer);
 
   links?.forEach((link) => {
-    link.addEventListener('click', () => {
-      menu.classList.remove('open');
-      toggle.classList.remove('active');
-      document.body.style.overflow = '';
-    });
+    link.addEventListener('click', closeDrawer);
+  });
+
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && drawer.classList.contains('open')) closeDrawer();
   });
 }
 
