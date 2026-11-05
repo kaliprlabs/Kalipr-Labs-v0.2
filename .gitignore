@@ -35,3 +35,5 @@ next-env.d.ts
 # OpenNext Cloudflare build output
 .open-next/
 
+
+tsconfig.tsbuildinfo
