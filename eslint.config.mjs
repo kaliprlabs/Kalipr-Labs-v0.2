@@ -20,6 +20,7 @@ const config = [
     ignores: [
       'node_modules/**',
       '.next/**',
+      '.open-next/**',
       'dist/**',
       '_archive/**',
       'src/main.js',
