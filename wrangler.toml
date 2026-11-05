@@ -1,8 +1,6 @@
-# https://developers.cloudflare.com/workers/wrangler/configuration/
+# Cloudflare Pages — wrangler configuration
+# https://developers.cloudflare.com/pages/functions/wrangler-configuration/
 name = "kalipr-labs"
 compatibility_date = "2025-01-01"
 compatibility_flags = ["nodejs_compat"]
 pages_build_output_dir = ".open-next/assets"
-
-[build]
-command = "npm run build"
