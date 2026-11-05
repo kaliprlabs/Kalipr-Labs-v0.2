@@ -4,12 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build",
+    "build": "opennextjs-cloudflare build",
     "start": "next start",
     "lint": "eslint .",
     "type-check": "tsc --noEmit",
     "build:cf": "opennextjs-cloudflare build",
-    "preview": "opennextjs-cloudflare preview"
+    "preview": "opennextjs-cloudflare preview",
+    "build:next": "next build"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
