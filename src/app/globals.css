@@ -1,0 +1,133 @@
+@import "tailwindcss";
+
+/* ─── Design Tokens ─────────────────────────────────────── */
+@theme {
+  /* Backgrounds */
+  --color-canvas:         #FAFAF8;
+  --color-surface:        #F3F3EF;
+  --color-surface-hover:  #EAEAE5;
+  --color-inverse:        #0E1812;
+
+  /* Text */
+  --color-primary:        #111110;
+  --color-secondary:      #4A4A45;
+  --color-muted:          #767670;
+  --color-on-inverse:     #EFF0EB;
+  --color-on-inverse-muted: #9EB3A6;
+
+  /* Accent — Forest Green */
+  --color-accent:         #1A5C3A;
+  --color-accent-hover:   #164D31;
+  --color-accent-light:   #2D7A52;
+  --color-accent-subtle:  rgba(26, 92, 58, 0.08);
+
+  /* Borders */
+  --color-border:         rgba(0, 0, 0, 0.09);
+  --color-border-strong:  rgba(0, 0, 0, 0.16);
+  --color-border-inverse: rgba(255, 255, 255, 0.10);
+
+  /* Typography */
+  --font-heading: var(--font-geist-sans), 'Inter', system-ui, sans-serif;
+  --font-sans:    var(--font-inter), system-ui, sans-serif;
+  --font-mono:    var(--font-jetbrains-mono), 'Courier New', monospace;
+
+  /* Animation */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ─── Base Styles ────────────────────────────────────────── */
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-canvas text-secondary font-sans;
+    font-size: 17px;
+    line-height: 1.65;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-primary font-heading;
+    line-height: 1.1;
+  }
+
+  img, video {
+    max-width: 100%;
+    display: block;
+  }
+
+  ::selection {
+    background-color: rgba(26, 92, 58, 0.18);
+    color: #111110;
+  }
+
+  :focus-visible {
+    outline: 2px solid #1A5C3A;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #F3F3EF;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.14);
+    border-radius: 3px;
+  }
+}
+
+/* ─── Layout Utilities ───────────────────────────────────── */
+@layer utilities {
+  .container-width {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: clamp(20px, 5vw, 48px);
+    padding-right: clamp(20px, 5vw, 48px);
+  }
+
+  .section-pad {
+    padding-top: clamp(80px, 10vw, 140px);
+    padding-bottom: clamp(80px, 10vw, 140px);
+  }
+
+  .section-pad-sm {
+    padding-top: clamp(48px, 6vw, 80px);
+    padding-bottom: clamp(48px, 6vw, 80px);
+  }
+
+  /* Dot grid background texture */
+  .dot-grid {
+    background-image: radial-gradient(circle, rgba(0, 0, 0, 0.11) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+
+  /* Text balance for headlines */
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* ─── Reduced Motion ─────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
